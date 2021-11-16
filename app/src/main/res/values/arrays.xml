@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources>
-    <string-array name="words">
+    <string-array name="alphabet">
         <item>a</item>
         <item>b</item>
         <item>c</item>
@@ -30,5 +30,68 @@
         <item>m</item>
         <item>n</item>
         <item>o</item>
+        <item>p</item>
+        <item>q</item>
+        <item>r</item>
+        <item>s</item>
+        <item>t</item>
+        <item>u</item>
+        <item>v</item>
+        <item>w</item>
+        <item>x</item>
+        <item>y</item>
+        <item>z</item>
     </string-array>
+
+
+    <string-array name="carBrands">
+        <item>porsche</item>
+        <item>kia</item>
+        <item>tesla</item>
+        <item>mazda</item>
+        <item>toyota</item>
+        <item>honda</item>
+        <item>jaguar</item>
+        <item>mitsubishi</item>
+        <item>volvo</item>
+        <item>lexus</item>
+        <item>volkswagen</item>
+        <item>hyundai</item>
+        <item>nissan</item>
+        <item>skoda</item>
+        <item>mercedes</item>
+        <item>suzuki</item>
+        <item>seat</item>
+
+    </string-array>
+
+
+    <string-array name="computerBrands">
+        <item>Apple</item>
+        <item>hp</item>
+        <item>Dell</item>
+        <item>Lenovo</item>
+        <item>Asus</item>
+        <item>Acer</item>
+        <item>Toshiba</item>
+        <item>Samsung</item>
+        <item>LG</item>
+        <item>MSI</item>
+        <item>Chuwi</item>
+        <item>Microsoft</item>
+        <item>Sony</item>
+    </string-array>
+
+
+    <string-array name="categoriesArray">
+        <item>Car Brands</item>
+        <item>Computer Brands</item>
+        <item>Air Flies</item>
+
+    </string-array>
+
+
+
+
+
 </resources>

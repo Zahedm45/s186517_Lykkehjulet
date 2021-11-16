@@ -3,7 +3,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.s186517lykkehjulet.R
 
@@ -15,11 +14,12 @@ class WordAdapter(private val context: Context, private val letterId: String) :
     private var alphabet: List<String>
 
     init {
-        alphabet = context.resources.getStringArray(R.array.words).toList()
+        alphabet = context.resources.getStringArray(R.array.alphabet).toList()
     }
 
     inner class ViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
-        val wordCard = view.findViewById<Button>(R.id.wordButton)
+        val wordButton = view.findViewById<Button>(R.id.wordButton)
+
 
     }
 
@@ -30,11 +30,12 @@ class WordAdapter(private val context: Context, private val letterId: String) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val curWord = alphabet[position]
-        holder.wordCard.text = curWord
+//        val curWord = alphabet[position]
+//        holder.wordButton.text = curWord
+
     }
 
-    override fun getItemCount() = alphabet.size
+    override fun getItemCount() = alphabet.size + 11
 
 
 }
