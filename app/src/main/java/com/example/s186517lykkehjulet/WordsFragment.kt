@@ -48,4 +48,8 @@ class WordsFragment : Fragment() {
 
         val list = resources.getStringArray(R.array.categoriesArray).toList()
     }
+
+
+
+
 }

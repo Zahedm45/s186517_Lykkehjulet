@@ -30,12 +30,12 @@ class WordAdapter(private val context: Context, private val letterId: String) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        val curWord = alphabet[position]
-//        holder.wordButton.text = curWord
+        val curWord = alphabet[position]
+        holder.wordButton.text = curWord
 
     }
 
-    override fun getItemCount() = alphabet.size + 11
+    override fun getItemCount() = alphabet.size
 
 
 }
