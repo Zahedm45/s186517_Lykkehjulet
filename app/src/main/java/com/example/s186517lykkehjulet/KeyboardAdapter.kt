@@ -17,12 +17,12 @@ class KeyboardAdapter(
 
 
     inner class ViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
-        val wordButton = view.findViewById<Button>(R.id.wordButton)
+        val wordButton = view.findViewById<Button>(R.id.keyboardButton)
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view : View = LayoutInflater.from(parent.context).inflate(R.layout.word, parent, false)
+        val view : View = LayoutInflater.from(parent.context).inflate(R.layout.keyboard_button_fragment, parent, false)
         return ViewHolder(view)
 
 
