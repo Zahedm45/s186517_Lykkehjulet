@@ -36,7 +36,7 @@ class WordsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 // drop down items
-        val categoryList = resources.getStringArray(R.array.categoryArray)
+/*        val categoryList = resources.getStringArray(R.array.categoryArray)
         val categoryArrayAdapter = ArrayAdapter(requireContext(), R.layout.item_list_fragment, categoryList)
         binding.ACTextView.setAdapter(categoryArrayAdapter)
 
@@ -46,7 +46,7 @@ class WordsFragment : Fragment() {
              selectedItem = selectedItem.replace("\\s".toRegex(), "")
 
             Log.i(TAG,"helooohkjlkd $selectedItem")
-        }
+        }*/
 
 
 
