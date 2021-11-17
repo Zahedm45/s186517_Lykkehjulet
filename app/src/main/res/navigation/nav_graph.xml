@@ -3,9 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/wordsReFragment">
+    app:startDestination="@id/winDisplay1">
     <fragment
         android:id="@+id/wordsReFragment"
         android:name="com.example.s186517lykkehjulet.KeyboardFragment"
         tools:layout="@layout/fragment_game_page" />
+
+
+    <fragment
+        android:id="@+id/winDisplay1"
+        android:name="com.example.s186517lykkehjulet.WinDisplay"
+        tools:layout="@layout/fragment_win_display" />
+
 </navigation>
