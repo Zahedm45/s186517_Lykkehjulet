@@ -8,7 +8,7 @@ import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 
 class WordAdapter(
-    private val wordArr: List<String>,
+    private val wordArr: CharArray,
     private val context: Context ): RecyclerView.Adapter<WordAdapter.ViewHolder>() {
 
 

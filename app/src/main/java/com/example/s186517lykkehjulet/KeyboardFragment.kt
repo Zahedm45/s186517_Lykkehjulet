@@ -17,6 +17,9 @@ class KeyboardFragment : Fragment() {
 
     private var _binding: FragmentGamePageBinding? = null
     private val binding get() = _binding!!
+    private lateinit var randomSelectedCategory : String
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +31,8 @@ class KeyboardFragment : Fragment() {
         _binding = FragmentGamePageBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        randomSelectedCategory = getRandomCategory().uppercase()
+        binding.textCategoryView.text = randomSelectedCategory
 
 
         return view
@@ -53,32 +58,48 @@ class KeyboardFragment : Fragment() {
 
 
 
-
+// adapter for keyboard
         val alphabetList = resources.getStringArray(R.array.alphabet).toList()
         val recyclerView = binding.recyclerView
          recyclerView.layoutManager = GridLayoutManager(requireContext(), 12)
-
- //       recyclerView.adapter = KeyboardAdapter(requireContext(), "b")
-
         recyclerView.adapter = WordAdapter(alphabetList, requireContext())
 
 
-        val wordList = listOf("m","a","c")
+
+// adapter for words
+        val d = getSelected(randomSelectedCategory)
+        val wordList = resources.getStringArray(d).toList()
+            .shuffled()
+            .take(1)
+            .toString().replace("[","").replace("]", "")
+
+        val charArr: CharArray = wordList.toCharArray()
         val wordRecyclerView = binding.rvWord
         wordRecyclerView.layoutManager = GridLayoutManager(requireContext(), 12)
-        wordRecyclerView.adapter = WordAdapter(wordList, requireContext())
-
-
+        wordRecyclerView.adapter = WordAdapter(charArr, requireContext())
 
 //        recyclerView.addItemDecoration(
 //            DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
 //        )
-
-
-
-
     }
 
+    fun getSelected(str: String) : Int {
+      when(str.replace(" ", "").lowercase()) {
+          "computerbrand" -> return R.array.CarBrands
+          "carbrands" -> return R.array.CarBrands
+          "airlines" -> return R.array.Airlines
+          else -> return 0
+      }
+    }
+
+    fun getRandomCategory() : String {
+        val item =requireContext().resources.getStringArray(R.array.categoryArray).toList()
+        .shuffled()
+        .shuffled()
+        .take(1)
+
+        return item.toString().replace("[","").replace("]", "")
+    }
 
 
 

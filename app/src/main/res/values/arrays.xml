@@ -15,45 +15,6 @@
      limitations under the License.
 -->
 <resources>
-    <string-array name="whiteSpace">
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-    </string-array>
 
 
     <string-array name="CarBrands">
@@ -95,10 +56,19 @@
     </string-array>
 
 
+    <string-array name="Airlines">
+        <item>Qatar Airways</item>
+        <item>EVA Air</item>
+        <item>Emirates</item>
+        <item>Hainan Airlines</item>
+
+    </string-array>
+
+
     <string-array name="categoryArray">
         <item>Car Brands</item>
         <item>Computer Brands</item>
-        <item>Air Flies</item>
+        <item>Airlines</item>
 
     </string-array>
 
@@ -130,7 +100,51 @@
         <item>x</item>
         <item>y</item>
         <item>z</item>
+        <item>_</item>
     </string-array>
+
+
+
+    <string-array name="whiteSpace">
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+    </string-array>
+
 
 
 
