@@ -23,35 +23,17 @@ class KeyboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
       // val view = inflater.inflate(R.layout.fragment_words, container, false)
-
         _binding = FragmentGamePageBinding.inflate(inflater, container, false)
         val view = binding.root
 
         randomSelectedCategory = getRandomCategory().uppercase()
         binding.textCategoryView.text = randomSelectedCategory
 
-
         return view
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-// drop down items
-/*        val categoryList = resources.getStringArray(R.array.categoryArray)
-        val categoryArrayAdapter = ArrayAdapter(requireContext(), R.layout.item_list_fragment, categoryList)
-        binding.ACTextView.setAdapter(categoryArrayAdapter)
-
-        var selectedItem: String
-        binding.ACTextView.setOnItemClickListener {parentFragment, view, position, id ->
-             selectedItem = parentFragment.getItemAtPosition(position) as String
-             selectedItem = selectedItem.replace("\\s".toRegex(), "")
-
-            Log.i(TAG,"helooohkjlkd $selectedItem")
-        }*/
-
-
-
-
 
 
 // adapter for keyboard
@@ -59,11 +41,12 @@ class KeyboardFragment : Fragment() {
         val charAlphabetList = alphabetList.toCharArray()
         val recyclerView = binding.recyclerView
          recyclerView.layoutManager = GridLayoutManager(requireContext(), 12)
-        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext())
+
 
 
 
 // adapter for words
+        val wordBtn: MutableList<WordButton> = ArrayList()
         val d = getSelected(randomSelectedCategory)
         val wordList = resources.getStringArray(d).toList()
             .shuffled()
@@ -71,21 +54,33 @@ class KeyboardFragment : Fragment() {
             .toString().replace("[","").replace("]", "")
 
         val charArr: CharArray = wordList.toCharArray()
+        for ((index, value ) in charArr.withIndex()) {
+            wordBtn.add(WordButton(value))
+        }
+
         val wordRecyclerView = binding.rvWord
         wordRecyclerView.layoutManager = GridLayoutManager(requireContext(), 12)
-        wordRecyclerView.adapter = WordAdapter(charArr, requireContext())
+        wordRecyclerView.adapter = WordAdapter( requireContext(), wordBtn)
+        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), wordBtn)
 
-//        recyclerView.addItemDecoration(
-//            DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-//        )
+
+
+
     }
+
+
+
+
+
+
+
 
     fun getSelected(str: String) : Int {
       when(str.replace(" ", "").lowercase()) {
           "computerbrand" -> return R.array.CarBrands
           "carbrands" -> return R.array.CarBrands
           "airlines" -> return R.array.Airlines
-          else -> return 0
+          else -> return R.array.Airlines
       }
     }
 
@@ -98,6 +93,24 @@ class KeyboardFragment : Fragment() {
         return item.toString().replace("[","").replace("]", "")
     }
 
+
+
+
+
+
+
+    // drop down items
+/*        val categoryList = resources.getStringArray(R.array.categoryArray)
+        val categoryArrayAdapter = ArrayAdapter(requireContext(), R.layout.item_list_fragment, categoryList)
+        binding.ACTextView.setAdapter(categoryArrayAdapter)
+
+        var selectedItem: String
+        binding.ACTextView.setOnItemClickListener {parentFragment, view, position, id ->
+             selectedItem = parentFragment.getItemAtPosition(position) as String
+             selectedItem = selectedItem.replace("\\s".toRegex(), "")
+
+            Log.i(TAG,"helooohkjlkd $selectedItem")
+        }*/
 
 
 }

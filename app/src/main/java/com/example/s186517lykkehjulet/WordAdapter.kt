@@ -1,6 +1,8 @@
 package com.example.s186517lykkehjulet
 
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,17 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class WordAdapter(
-    private val wordArr: CharArray,
-    private val context: Context
+    //private val wordArr: CharArray,
+    private val context: Context,
+    private val wordBtn: List<WordButton>
 ): RecyclerView.Adapter<WordAdapter.ViewHolder>() {
 
-
-    // private val wordArr = word.toList()
 
 
     inner class ViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
         val wordButton = view.findViewById<Button>(R.id.wordButton)
-
 
     }
 
@@ -29,9 +29,13 @@ class WordAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val curWord = wordArr[position]
-        holder.wordButton.text = curWord.toString()
+        val curWord = wordBtn[position]
+        holder.wordButton.text = curWord.letter.toString()
+        if (curWord.isFaceUp) {
+            holder.wordButton.text = curWord.letter.toString()
+        }
+
     }
 
-    override fun getItemCount() = wordArr.size
+    override fun getItemCount() = wordBtn.size
 }
