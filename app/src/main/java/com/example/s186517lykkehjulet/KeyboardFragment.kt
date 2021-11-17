@@ -1,6 +1,8 @@
 package com.example.s186517lykkehjulet
 
+import android.content.ContentValues
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,7 +72,6 @@ class KeyboardFragment : Fragment() {
 
 
 
-
     }
 
 
@@ -81,12 +82,15 @@ class KeyboardFragment : Fragment() {
 
 
     fun getSelected(str: String) : Int {
-      when(str.replace(" ", "").lowercase()) {
-          "computerbrand" -> return R.array.CarBrands
-          "carbrands" -> return R.array.CarBrands
-          "airlines" -> return R.array.Airlines
-          else -> return R.array.Airlines
-      }
+        return when(str.replace(" ", "").lowercase()) {
+            "computerbrands" -> R.array.ComputerBrands
+            "carbrands" -> R.array.CarBrands
+            "airlines" -> R.array.Airlines
+            else -> {
+                Log.i(ContentValues.TAG, "Category $str not found")
+                0
+            }
+        }
     }
 
     fun getRandomCategory() : String {
