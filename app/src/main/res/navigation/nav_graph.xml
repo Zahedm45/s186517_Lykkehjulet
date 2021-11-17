@@ -13,6 +13,15 @@
     <fragment
         android:id="@+id/winDisplay1"
         android:name="com.example.s186517lykkehjulet.WinDisplay"
-        tools:layout="@layout/fragment_win_display" />
+        tools:layout="@layout/fragment_win_display" >
+
+        <action
+            android:id="@+id/playButton"
+            app:destination="@+id/wordsReFragment"
+            />
+
+    </fragment>
+
+
 
 </navigation>

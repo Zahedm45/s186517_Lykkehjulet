@@ -7,29 +7,6 @@
     >
 
 
-<!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:id="@+id/textInputLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="40dp"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:layout_marginEnd="40dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
-<!--        >-->
-
-<!--        <AutoCompleteTextView-->
-<!--            android:id="@+id/AC_textView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:text="Select Category"-->
-<!--            android:inputType="none"-->
-<!--            />-->
-
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
-
 
     <TextView
         android:id="@+id/text_category_view"
@@ -76,3 +53,27 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:id="@+id/textInputLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="40dp"-->
+    <!--        android:layout_marginTop="30dp"-->
+    <!--        android:layout_marginEnd="40dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+    <!--        >-->
+
+    <!--        <AutoCompleteTextView-->
+    <!--            android:id="@+id/AC_textView"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:text="Select Category"-->
+    <!--            android:inputType="none"-->
+    <!--            />-->
+
+    <!--    </com.google.android.material.textfield.TextInputLayout>-->
