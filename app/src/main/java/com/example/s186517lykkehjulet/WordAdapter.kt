@@ -31,9 +31,9 @@ class WordAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val curWord = wordBtn[position]
         holder.wordButton.text = curWord.letter.toString()
-        if (curWord.isFaceUp) {
-            holder.wordButton.text = curWord.letter.toString()
-        }
+//        if (curWord.isFaceUp) {
+//            holder.wordButton.text = curWord.letter.toString()
+//        }
 
     }
 

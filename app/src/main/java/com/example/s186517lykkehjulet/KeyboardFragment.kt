@@ -56,12 +56,17 @@ class KeyboardFragment : Fragment() {
         val charArr: CharArray = wordList.toCharArray()
         for ((index, value ) in charArr.withIndex()) {
             wordBtn.add(WordButton(value))
+
         }
+
+
 
         val wordRecyclerView = binding.rvWord
         wordRecyclerView.layoutManager = GridLayoutManager(requireContext(), 12)
         wordRecyclerView.adapter = WordAdapter( requireContext(), wordBtn)
-        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), wordBtn)
+
+        var boardList: Board = Board(wordBtn)
+        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), boardList)
 
 
 

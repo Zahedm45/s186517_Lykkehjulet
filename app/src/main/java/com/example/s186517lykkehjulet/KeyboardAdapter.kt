@@ -12,17 +12,21 @@ import androidx.recyclerview.widget.RecyclerView
 class KeyboardAdapter(
     private val wordArr: CharArray,
     private val context: Context,
-    private val wordBtn: MutableList<WordButton>
+    private val board: Board
 ): RecyclerView.Adapter<KeyboardAdapter.ViewHolder>() {
+
+    private lateinit var wordBtn : MutableList<WordButton>
 
 
     inner class ViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
         val wordButton = view.findViewById<Button>(R.id.keyboardButton)
 
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view : View = LayoutInflater.from(parent.context).inflate(R.layout.keyboard_button_fragment, parent, false)
+        wordBtn = board.wordButton
         return ViewHolder(view)
 
 
@@ -44,13 +48,8 @@ class KeyboardAdapter(
                 }
             }
 
-/*            if (wordBtn.contains(newBtn)) {
-                val pos: Int = wordBtn.indexOf(newBtn)
 
 
-                wordBtn.remove( newBtn)
-                Log.i(TAG, "helllll")
-            }*/
         }
 
     }
