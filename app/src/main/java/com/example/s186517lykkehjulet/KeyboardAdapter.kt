@@ -39,9 +39,13 @@ class KeyboardAdapter(
         holder.wordButton.setOnClickListener {
             val btnText = holder.wordButton.text.single()
 
+            Log.i(TAG, "Clicked outside $btnText")
+
             for ((index, value ) in wordBtn.withIndex()) {
-                if (!value.isMatched && value.letter.equals(btnText)) {
-                    Log.i(TAG, "helllll")
+                Log.i(TAG, "value ${value.letter} btnText $btnText")
+
+                if (!value.isMatched && value.letter == btnText) {
+                    Log.i(TAG, "Clicked $btnText")
                     value.isMatched = true
                     board.amountMatched += 1
                     break

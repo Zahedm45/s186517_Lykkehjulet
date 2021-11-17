@@ -7,6 +7,5 @@
     <fragment
         android:id="@+id/wordsReFragment"
         android:name="com.example.s186517lykkehjulet.KeyboardFragment"
-        android:label="fragment_scrolling"
-        tools:layout="@layout/fragment_gamePage" />
+        tools:layout="@layout/fragment_game_page" />
 </navigation>
