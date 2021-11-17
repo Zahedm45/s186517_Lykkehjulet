@@ -7,14 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.s186517lykkehjulet.R
 
 
-class WordAdapter(private val context: Context, private val letterId: String) :
-    RecyclerView.Adapter<WordAdapter.ViewHolder>() {
+class KeyboardAdapter(private val context: Context, private val letterId: String) :
+    RecyclerView.Adapter<KeyboardAdapter.ViewHolder>() {
 
 
     private var alphabet: List<String>
 
     init {
-        alphabet = context.resources.getStringArray(R.array.whiteSpace).toList()
+        alphabet = context.resources.getStringArray(R.array.alphabet).toList()
     }
 
     inner class ViewHolder(val view : View) : RecyclerView.ViewHolder(view) {

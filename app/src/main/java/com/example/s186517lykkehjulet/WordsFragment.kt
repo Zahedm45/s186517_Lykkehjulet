@@ -1,6 +1,6 @@
 package com.example.s186517lykkehjulet
 
-import WordAdapter
+import KeyboardAdapter
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -59,7 +59,7 @@ class WordsFragment : Fragment() {
         val recyclerView = binding.recyclerView
          recyclerView.layoutManager = GridLayoutManager(requireContext(), 12)
 
-        recyclerView.adapter = WordAdapter(requireContext(), "b")
+        recyclerView.adapter = KeyboardAdapter(requireContext(), "b")
 //        recyclerView.addItemDecoration(
 //            DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
 //        )
