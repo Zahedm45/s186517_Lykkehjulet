@@ -6,7 +6,7 @@
     app:startDestination="@id/wordsReFragment">
     <fragment
         android:id="@+id/wordsReFragment"
-        android:name="com.example.s186517lykkehjulet.WordsFragment"
+        android:name="com.example.s186517lykkehjulet.KeyboardFragment"
         android:label="fragment_scrolling"
-        tools:layout="@layout/fragment_words" />
+        tools:layout="@layout/fragment_gamePage" />
 </navigation>
