@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 
+
 class WordAdapter(
     private val wordArr: CharArray,
-    private val context: Context ): RecyclerView.Adapter<WordAdapter.ViewHolder>() {
+    private val context: Context
+): RecyclerView.Adapter<WordAdapter.ViewHolder>() {
 
 
-   // private val wordArr = word.toList()
+    // private val wordArr = word.toList()
 
 
     inner class ViewHolder(val view : View) : RecyclerView.ViewHolder(view) {

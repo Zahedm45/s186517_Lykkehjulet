@@ -1,13 +1,9 @@
 package com.example.s186517lykkehjulet
 
-import KeyboardAdapter
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.s186517lykkehjulet.databinding.FragmentGamePageBinding
@@ -59,10 +55,11 @@ class KeyboardFragment : Fragment() {
 
 
 // adapter for keyboard
-        val alphabetList = resources.getStringArray(R.array.alphabet).toList()
+        val alphabetList = resources.getString(R.string.alphabet)
+        val charAlphabetList = alphabetList.toCharArray()
         val recyclerView = binding.recyclerView
          recyclerView.layoutManager = GridLayoutManager(requireContext(), 12)
-        recyclerView.adapter = WordAdapter(alphabetList, requireContext())
+        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext())
 
 
 

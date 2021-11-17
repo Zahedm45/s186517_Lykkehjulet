@@ -72,10 +72,11 @@
 
     </string-array>
 
+    <string name="alphabet" >abcdefghijklmnopqrstuvwxyz_</string>
 
-
+<!--
     <string-array name="alphabet">
-        <item>a</item>
+        <item>abcdefghijklmnopqrstwvyz </item>
         <item>b</item>
         <item>c</item>
         <item>d</item>
@@ -101,7 +102,7 @@
         <item>y</item>
         <item>z</item>
         <item>_</item>
-    </string-array>
+    </string-array>-->
 
 
 
