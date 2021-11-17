@@ -38,18 +38,19 @@ class KeyboardAdapter(
         holder.wordButton.text = curWord.toString()
         holder.wordButton.setOnClickListener {
             val btnText = holder.wordButton.text.single()
-            val newBtn = WordButton(btnText)
 
             for ((index, value ) in wordBtn.withIndex()) {
                 if (!value.isMatched && value.letter.equals(btnText)) {
                     Log.i(TAG, "helllll")
                     value.isMatched = true
+                    board.amountMatched += 1
                     break
                 }
             }
 
-
-
+            if (board.amountMatched == wordBtn.size) {
+                Log.i(TAG, "You won the match...")
+            }
         }
 
     }
