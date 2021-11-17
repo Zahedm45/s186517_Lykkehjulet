@@ -14,7 +14,7 @@ class WordAdapter(private val context: Context, private val letterId: String) :
     private var alphabet: List<String>
 
     init {
-        alphabet = context.resources.getStringArray(R.array.alphabet).toList()
+        alphabet = context.resources.getStringArray(R.array.whiteSpace).toList()
     }
 
     inner class ViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
@@ -30,6 +30,7 @@ class WordAdapter(private val context: Context, private val letterId: String) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         val curWord = alphabet[position]
         holder.wordButton.text = curWord
 

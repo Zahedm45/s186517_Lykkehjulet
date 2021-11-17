@@ -1,15 +1,15 @@
 package com.example.s186517lykkehjulet
 
 import WordAdapter
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s186517lykkehjulet.databinding.FragmentWordsBinding
 
 class WordsFragment : Fragment() {
@@ -28,17 +28,35 @@ class WordsFragment : Fragment() {
         _binding = FragmentWordsBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        val categoryList = resources.getStringArray(R.array.categoriesArray)
-        val categoryArrayAdapter = ArrayAdapter(requireContext(), R.layout.item_list_fragment, categoryList)
-        binding.ACTextView.setAdapter(categoryArrayAdapter)
+
 
         return view
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+// drop down items
+        val categoryList = resources.getStringArray(R.array.categoryArray)
+        val categoryArrayAdapter = ArrayAdapter(requireContext(), R.layout.item_list_fragment, categoryList)
+        binding.ACTextView.setAdapter(categoryArrayAdapter)
+
+        var selectedItem: String
+        binding.ACTextView.setOnItemClickListener {parentFragment, view, position, id ->
+             selectedItem = parentFragment.getItemAtPosition(position) as String
+             selectedItem = selectedItem.replace("\\s".toRegex(), "")
+
+            Log.i(TAG,"helooohkjlkd $selectedItem")
+        }
+
+
+
+
+
+
+
+
+
         val recyclerView = binding.recyclerView
-         // recyclerView.layoutManager = LinearLayoutManager(requireContext())
          recyclerView.layoutManager = GridLayoutManager(requireContext(), 12)
 
         recyclerView.adapter = WordAdapter(requireContext(), "b")
@@ -46,7 +64,9 @@ class WordsFragment : Fragment() {
 //            DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
 //        )
 
-        val list = resources.getStringArray(R.array.categoriesArray).toList()
+
+
+
     }
 
 

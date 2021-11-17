@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources>
-    <string-array name="alphabet">
+    <string-array name="whiteSpace">
         <item> </item>
         <item> </item>
         <item> </item>
@@ -56,7 +56,7 @@
     </string-array>
 
 
-    <string-array name="carBrands">
+    <string-array name="CarBrands">
         <item>porsche</item>
         <item>kia</item>
         <item>tesla</item>
@@ -78,7 +78,7 @@
     </string-array>
 
 
-    <string-array name="computerBrands">
+    <string-array name="ComputerBrands">
         <item>Apple</item>
         <item>hp</item>
         <item>Dell</item>
@@ -95,7 +95,7 @@
     </string-array>
 
 
-    <string-array name="categoriesArray">
+    <string-array name="categoryArray">
         <item>Car Brands</item>
         <item>Computer Brands</item>
         <item>Air Flies</item>
