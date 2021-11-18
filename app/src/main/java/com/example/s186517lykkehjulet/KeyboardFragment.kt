@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.s186517lykkehjulet.databinding.FragmentGamePageBinding
 
 class KeyboardFragment : Fragment() {
@@ -16,6 +17,7 @@ class KeyboardFragment : Fragment() {
     private var _binding: FragmentGamePageBinding? = null
     private val binding get() = _binding!!
     private lateinit var randomSelectedCategory : String
+
 
 
 
@@ -33,6 +35,8 @@ class KeyboardFragment : Fragment() {
 
         return view
     }
+
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -64,11 +68,11 @@ class KeyboardFragment : Fragment() {
 
 
         val wordRecyclerView = binding.rvWord
-        wordRecyclerView.layoutManager = GridLayoutManager(requireContext(), 12)
-        wordRecyclerView.adapter = WordAdapter( requireContext(), wordBtn)
+//        wordRecyclerView.layoutManager = GridLayoutManager(requireContext(), 12)
+//        wordRecyclerView.adapter = WordAdapter( requireContext(), wordBtn)
 
         var boardList: Board = Board(wordBtn)
-        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), boardList)
+        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), boardList )
 
 
 

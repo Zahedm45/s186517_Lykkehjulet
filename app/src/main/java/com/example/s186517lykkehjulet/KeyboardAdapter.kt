@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.s186517lykkehjulet.databinding.FragmentGamePageBinding
 
 class KeyboardAdapter(
     private val wordArr: CharArray,
@@ -16,19 +18,19 @@ class KeyboardAdapter(
 ): RecyclerView.Adapter<KeyboardAdapter.ViewHolder>() {
 
     private lateinit var wordBtn : MutableList<WordButton>
+    lateinit var view: View
+
 
 
     inner class ViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
         val wordButton = view.findViewById<Button>(R.id.keyboardButton)
 
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view : View = LayoutInflater.from(parent.context).inflate(R.layout.keyboard_button_fragment, parent, false)
+        view  = LayoutInflater.from(parent.context).inflate(R.layout.keyboard_button_fragment, parent, false)
         wordBtn = board.wordButton
         return ViewHolder(view)
-
 
     }
 
@@ -48,9 +50,13 @@ class KeyboardAdapter(
                     Log.i(TAG, "Clicked $btnText")
                     value.isMatched = true
                     board.amountMatched += 1
+                    ad()
                     break
                 }
             }
+
+
+
 
             if (board.amountMatched == wordBtn.size) {
                 Log.i(TAG, "You won the match...")
@@ -59,7 +65,17 @@ class KeyboardAdapter(
 
     }
 
-    override fun getItemCount() = wordArr.size
+    override fun getItemCount(): Int {
+        Log.i(TAG, "getItemCount Keyboard called..................")
+        return wordArr.size
+    }
+
+    fun ad() {
+        Log.i(TAG, "here is the $view")
+        val wordRecyclerView = view.findViewById<RecyclerView>(R.id.rv_word)
+        wordRecyclerView.layoutManager = GridLayoutManager(context, 12)
+        wordRecyclerView.adapter = WordAdapter( context, wordBtn)
+    }
 
 
 
