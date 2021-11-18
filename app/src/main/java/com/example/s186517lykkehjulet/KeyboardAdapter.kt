@@ -49,7 +49,7 @@ class KeyboardAdapter(
 
         holder.keyButton.setOnClickListener {
             val spinValue = board.player.spinWheelValue.lowercase()
-            Log.i(TAG, "player (KeyboardAdapter) ${board.player.spinWheelValue}")
+            Log.i(TAG, "spin value (KeyboardAdapter) ${board.player.spinWheelValue}")
             if (spinValue != "null") {
 
                 when(spinValue) {
@@ -73,6 +73,10 @@ class KeyboardAdapter(
 
     private fun playerHasPoints(holder: ViewHolder, spinValue: String) {
         val isClickSucceeded = isWordMatched(holder)
+        val spinValueInt = spinValue.toIntOrNull()
+        if (isClickSucceeded && (spinValueInt != null) ) {
+            board.player.points += spinValueInt
+        }
         // navigates to another fragment if there is a winner
         winnerFound()
         clickNotSucceeded(board, isClickSucceeded)
