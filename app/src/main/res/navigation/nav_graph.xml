@@ -19,6 +19,9 @@
             android:id="@+id/playButton_lost"
             app:destination="@+id/wordsReFragment"
             />
+        <action
+            android:id="@+id/action_winDisplay1_to_lostDisplay_nav"
+            app:destination="@id/lostDisplay_nav" />
 
 
     </fragment>
