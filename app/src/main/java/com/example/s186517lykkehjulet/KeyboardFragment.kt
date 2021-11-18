@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.s186517lykkehjulet.databinding.FragmentGamePageBinding
 
 class KeyboardFragment : Fragment() {
@@ -17,6 +18,7 @@ class KeyboardFragment : Fragment() {
      var _binding: FragmentGamePageBinding? = null
      val binding get() = _binding!!
     private lateinit var randomSelectedCategory : String
+    private lateinit var recyclerView : RecyclerView
 
 
 
@@ -43,7 +45,7 @@ class KeyboardFragment : Fragment() {
 // adapter for keyboard
         val alphabetList = resources.getString(R.string.alphabet)
         val charAlphabetList = alphabetList.toCharArray()
-        val recyclerView = binding.recyclerView
+        recyclerView = binding.recyclerView
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 10)
 
 
@@ -74,7 +76,8 @@ class KeyboardFragment : Fragment() {
         val player = Player()
         var board: Board = Board(wordBtn, player)
         spinWheel(board)
-        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), board, wordAdapter, binding)
+        val keyboardAdapter = KeyboardAdapter(charAlphabetList, requireContext(), board, wordAdapter, binding)
+        recyclerView.adapter = keyboardAdapter
 
 
 
@@ -95,8 +98,14 @@ class KeyboardFragment : Fragment() {
             board.player.spinWheelValue = str
            // Log.i(TAG, "player spin value....................${board.player.spinWheelValue}")
 
-
+            when(str.lowercase()){
+                ValueOption.BANKRUPT -> bankrupt(board)
+                ValueOption.TURN_LOST -> turnLost(board)
+                ValueOption.EXTRA_TURN -> extraTurn(board)
+                else -> wonPoints(board)
+            }
         }
+
     }
 
 
@@ -125,6 +134,29 @@ class KeyboardFragment : Fragment() {
 
         return item.toString().replace("[","").replace("]", "")
     }
+
+
+
+    private fun bankrupt(board: Board) {
+        val player = board.player
+        player.points = 0
+
+
+    }
+
+    private fun turnLost(board: Board) {
+        Log.i(TAG, "lost turn....")
+
+    }
+
+    private fun extraTurn(board: Board) {
+
+    }
+
+    private fun wonPoints(board: Board) {
+
+    }
+
 
 
 

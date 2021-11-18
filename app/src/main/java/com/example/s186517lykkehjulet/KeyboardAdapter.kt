@@ -46,19 +46,11 @@ class KeyboardAdapter(
 
 
 
-
         holder.keyButton.setOnClickListener {
             val spinValue = board.player.spinWheelValue.lowercase()
-            Log.i(TAG, "spin value (KeyboardAdapter) ${board.player.spinWheelValue}")
+            Log.i(TAG, "spin value (KeyboardAdapter) ${spinValue}")
             if (spinValue != "null") {
-
-                when(spinValue) {
-                    ValueOption.BANKRUPT -> bankrupt()
-                    ValueOption.TURN_LOST -> turnLost()
-                    ValueOption.EXTRA_TURN -> extraTurn()
-                    else -> playerHasPoints(holder, spinValue)
-                }
-
+                playerHasPoints(holder, spinValue)
             }
 
         }
@@ -71,36 +63,23 @@ class KeyboardAdapter(
 
 
 
-    private fun playerHasPoints(holder: ViewHolder, spinValue: String) {
+    fun playerHasPoints(holder: ViewHolder, spinValue: String) {
         val isClickSucceeded = isWordMatched(holder)
         val spinValueInt = spinValue.toIntOrNull()
+        val player = board.player
         if (isClickSucceeded && (spinValueInt != null) ) {
-            board.player.points += spinValueInt
+            player.points += spinValueInt
         }
         // navigates to another fragment if there is a winner
         winnerFound()
         clickNotSucceeded(board, isClickSucceeded)
-        if (board.player.turns == 0) {
+        if (player.turns == 0) {
             Navigation.findNavController(view).navigate(R.id.lostDisplay_nav)
         }
         binding.pointsTextView.text = "Press Spin Button"
-        board.player.spinWheelValue = "Null"
+        player.spinWheelValue = "Null"
         //binding.pointsTextView.text = R.string.spinWheelFirst.toString()
     }
-
-
-    private fun bankrupt() {
-
-    }
-
-    private fun turnLost() {
-
-    }
-
-    private fun extraTurn() {
-
-    }
-
 
 
 
