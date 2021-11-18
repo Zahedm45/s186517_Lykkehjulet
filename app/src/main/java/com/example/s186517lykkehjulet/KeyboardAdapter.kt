@@ -49,18 +49,22 @@ class KeyboardAdapter(
         holder.keyButton.setOnClickListener {
             val keyboardBtnText = holder.keyButton.text.single()
             var isClickSucceeded = false
-            Log.i(TAG, "Clicked outside $keyboardBtnText")
+//            Log.i(TAG, "Clicked outside $keyboardBtnText")
 
             for ((index, value ) in wordBtn.withIndex()) {
-                Log.i(TAG, "value ${value.letter} btnText $keyboardBtnText")
+//                Log.i(TAG, "value ${value.letter} btnText $keyboardBtnText")
 
-                if (value.letter == '-' || ((!value.isMatched) && (value.letter.equals(keyboardBtnText)) && (!value.isMatched))) {
-                    Log.i(TAG, "Clicked $keyboardBtnText")
+                if (((!value.isMatched) && (value.letter.equals(keyboardBtnText)) && (!value.isMatched))) {
+//                    Log.i(TAG, "Clicked $keyboardBtnText")
                     isClickSucceeded = true
                     value.isMatched = true
                     board.amountMatched += 1
                     wordAdapter.notifyChanged()
                     break
+
+                }else if (value.letter == '-') {
+                    board.amountMatched += 1
+                    
                 }
             }
 
