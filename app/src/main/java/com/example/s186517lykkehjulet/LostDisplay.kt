@@ -9,14 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import kotlin.system.exitProcess
 
-class WinDisplay : Fragment() {
+class LostDisplay : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_win_display, container, false)
+        val view = inflater.inflate(R.layout.lost_display_fragemnt, container, false)
         view.findViewById<Button>(R.id.playButton_lost).setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.wordsReFragment)
         }

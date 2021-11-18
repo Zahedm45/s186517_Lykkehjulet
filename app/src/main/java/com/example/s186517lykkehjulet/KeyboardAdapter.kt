@@ -41,6 +41,7 @@ class KeyboardAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val curWord = wordArr[position]
         holder.wordButton.text = curWord.toString()
+
         holder.wordButton.setOnClickListener {
             val btnText = holder.wordButton.text.single()
 

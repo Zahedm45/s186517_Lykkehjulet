@@ -69,7 +69,8 @@ class KeyboardFragment : Fragment() {
         var wordAdapter : WordAdapter = WordAdapter( requireContext(), wordBtn)
         wordRecyclerView.adapter = wordAdapter
 
-        var boardList: Board = Board(wordBtn)
+        val player = Player()
+        var boardList: Board = Board(wordBtn, player)
         recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), boardList, wordAdapter)
 
 
