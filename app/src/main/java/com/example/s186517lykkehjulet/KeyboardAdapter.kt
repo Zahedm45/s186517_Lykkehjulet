@@ -33,7 +33,6 @@ class KeyboardAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         view  = LayoutInflater.from(parent.context).inflate(R.layout.keyboard_button_fragment, parent, false)
-
         setPlayerTurnsOnDisplay(board, binding)
         return ViewHolder(view)
 
@@ -45,19 +44,26 @@ class KeyboardAdapter(
         val curKey = wordArr[position]
         holder.keyButton.text = curKey.toString()
 
+        Log.i(TAG, "player (KeyboardAdapter).${board.player.spinWheelValue}")
+
 
         holder.keyButton.setOnClickListener {
+            if (board.player.spinWheelValue != "Null") {
+                val isClickSucceeded = isWordMatched(holder)
 
-            val isClickSucceeded = isWordMatched(holder)
-            // navigates to another fragment if there is a winner
-            winnerFound()
-            clickNotSucceeded(board, isClickSucceeded)
-
-            if (board.player.turns == 0) {
-                Navigation.findNavController(view).navigate(R.id.lostDisplay_nav)
+                // navigates to another fragment if there is a winner
+                winnerFound()
+                clickNotSucceeded(board, isClickSucceeded)
+                if (board.player.turns == 0) {
+                    Navigation.findNavController(view).navigate(R.id.lostDisplay_nav)
+                }
+                binding.pointsTextView.text = "Press Spin Button"
+                board.player.spinWheelValue = "Null"
+                //binding.pointsTextView.text = R.string.spinWheelFirst.toString()
             }
 
         }
+
 
     }
 

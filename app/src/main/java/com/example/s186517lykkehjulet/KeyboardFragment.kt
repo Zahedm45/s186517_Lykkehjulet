@@ -73,8 +73,9 @@ class KeyboardFragment : Fragment() {
 
         val player = Player()
         var board: Board = Board(wordBtn, player)
-        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), board, wordAdapter, binding)
         spinWheel(board)
+        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), board, wordAdapter, binding)
+
 
 
 
@@ -92,6 +93,8 @@ class KeyboardFragment : Fragment() {
             val str = valueOption.uppercase()
             binding.pointsTextView.text = str
             board.player.spinWheelValue = str
+            Log.i(TAG, "player spin value....................${board.player.spinWheelValue}")
+
 
         }
     }

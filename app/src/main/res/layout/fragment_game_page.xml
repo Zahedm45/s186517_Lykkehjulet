@@ -84,7 +84,7 @@
         android:layout_marginHorizontal="5dp"
         android:background="#2AEA9E4E"
         android:paddingVertical="15dp"
-        android:text="@string/spin"
+        android:text="@string/spinWheelFirst"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="35sp"
