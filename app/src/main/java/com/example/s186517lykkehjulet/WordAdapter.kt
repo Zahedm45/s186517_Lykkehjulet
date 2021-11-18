@@ -31,16 +31,16 @@ class WordAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val curWord = wordBtn[position]
  //       holder.wordButton.text = curWord.letter.toString()
-        if (curWord.isMatched && !curWord.isFaceUp) {
+        if (curWord.isMatched) {
             holder.wordButton.text = curWord.letter.toString()
             curWord.isFaceUp = true
-            Log.i(TAG, "WordAdapter onBind called")
+//            Log.i(TAG, "WordAdapter onBind called")
         }
 
     }
 
     override fun getItemCount(): Int {
-        Log.i(TAG, "WordAdapter notifyChanged called...")
+//        Log.i(TAG, "WordAdapter notifyChanged called...")
         return wordBtn.size
     }
 

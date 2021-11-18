@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 
 class KeyboardAdapter(
@@ -25,8 +27,10 @@ class KeyboardAdapter(
 
     }
 
+    lateinit var view : View
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view : View = LayoutInflater.from(parent.context).inflate(R.layout.keyboard_button_fragment, parent, false)
+        view  = LayoutInflater.from(parent.context).inflate(R.layout.keyboard_button_fragment, parent, false)
         wordBtn = board.wordButton
         return ViewHolder(view)
 
@@ -56,6 +60,10 @@ class KeyboardAdapter(
 
             if (board.amountMatched == wordBtn.size) {
                 Log.i(TAG, "You won the match...")
+                Navigation.findNavController(view).navigate(R.id.winDisplay1)
+
+
+
             }
         }
 
