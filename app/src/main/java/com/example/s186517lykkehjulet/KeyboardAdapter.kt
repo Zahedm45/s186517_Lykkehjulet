@@ -42,6 +42,7 @@ class KeyboardAdapter(
         val curWord = wordArr[position]
         holder.wordButton.text = curWord.toString()
 
+        var isClickSucceeded = false
         holder.wordButton.setOnClickListener {
             val btnText = holder.wordButton.text.single()
 
@@ -52,6 +53,7 @@ class KeyboardAdapter(
 
                 if (!value.isMatched && value.letter == btnText) {
                     Log.i(TAG, "Clicked $btnText")
+                    isClickSucceeded = true
                     value.isMatched = true
                     board.amountMatched += 1
                     wordAdapter.notifyChanged()
@@ -59,12 +61,22 @@ class KeyboardAdapter(
                 }
             }
 
+            // navigates to another fragment
             if (board.amountMatched == wordBtn.size) {
                 Log.i(TAG, "You won the match...")
                 Navigation.findNavController(view).navigate(R.id.winDisplay1)
 
+            }
 
+            val player = board.player
+            if (!isClickSucceeded) {
 
+                player.turns -= 1
+                Log.i(TAG, "player ${player.turns}")
+            }
+
+            if (player.turns == 0) {
+                Navigation.findNavController(view).navigate(R.id.lostDisplay_nav)
             }
         }
 
