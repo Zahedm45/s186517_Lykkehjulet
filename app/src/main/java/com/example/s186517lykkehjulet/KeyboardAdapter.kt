@@ -140,7 +140,7 @@ class KeyboardAdapter(
         }
     }
 
-    private fun setPlayerTurnsOnDisplay(board: Board, binding: FragmentGamePageBinding){
+    fun setPlayerTurnsOnDisplay(board: Board, binding: FragmentGamePageBinding){
         // Log.i(TAG, "Turn left called")
         val leftTurns = binding.turnLeftTv
         val player = board.player

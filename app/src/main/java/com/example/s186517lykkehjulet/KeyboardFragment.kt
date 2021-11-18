@@ -1,16 +1,12 @@
 package com.example.s186517lykkehjulet
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.ContentValues
-import android.content.ContentValues.TAG
-import android.icu.text.DateTimePatternGenerator.PatternInfo.OK
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -107,7 +103,7 @@ class KeyboardFragment : Fragment() {
                 ValueOption.BANKRUPT -> bankrupt(board)
                 ValueOption.TURN_LOST -> turnLost(board)
                 ValueOption.EXTRA_TURN -> extraTurn(board)
-                else -> wonPoints(board)
+               // else -> wonPoints(board, str.lowercase())
             }
         }
 
@@ -147,7 +143,7 @@ class KeyboardFragment : Fragment() {
         val alertDialog = AlertDialog.Builder(context)
         alertDialog.setTitle("You land on bankrupt!")
         if (player.points != 0) {
-            alertDialog.setMessage("You lose all your money..")
+            alertDialog.setMessage("You lose all of your money. No worries, keep play..")
         }
         alertDialog.setPositiveButton("OK",{dialog, which ->})
         alertDialog.show()
@@ -158,16 +154,25 @@ class KeyboardFragment : Fragment() {
     }
 
     private fun turnLost(board: Board) {
-        Log.i(TAG, "lost turn....")
-
+        val player = board.player
+        if (player.turns > 0) {
+            player.turns -= 1
+            keyboardAdapter.setPlayerTurnsOnDisplay(board, binding)
+        }
     }
 
     private fun extraTurn(board: Board) {
-
+        val player = board.player
+        player.turns += 1
+        keyboardAdapter.setPlayerTurnsOnDisplay(board, binding)
     }
 
-    private fun wonPoints(board: Board) {
-
+    private fun wonPoints(board: Board, spinValue: String) {
+        val player = board.player
+        val spinValueInt = spinValue.toIntOrNull()
+        if (spinValueInt != null) {
+            player.points += spinValueInt
+        }
     }
 
 
