@@ -42,7 +42,7 @@ class KeyboardFragment : Fragment() {
         val alphabetList = resources.getString(R.string.alphabet)
         val charAlphabetList = alphabetList.toCharArray()
         val recyclerView = binding.recyclerView
-         recyclerView.layoutManager = GridLayoutManager(requireContext(), 10)
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 10)
 
 
 
