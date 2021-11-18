@@ -1,6 +1,7 @@
 package com.example.s186517lykkehjulet
 
 import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,8 +14,8 @@ import com.example.s186517lykkehjulet.databinding.FragmentGamePageBinding
 class KeyboardFragment : Fragment() {
 
 
-    private var _binding: FragmentGamePageBinding? = null
-    private val binding get() = _binding!!
+     var _binding: FragmentGamePageBinding? = null
+     val binding get() = _binding!!
     private lateinit var randomSelectedCategory : String
 
 
@@ -36,6 +37,7 @@ class KeyboardFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
 
 
 // adapter for keyboard
@@ -70,13 +72,13 @@ class KeyboardFragment : Fragment() {
         wordRecyclerView.adapter = wordAdapter
 
         val player = Player()
-        var boardList: Board = Board(wordBtn, player)
-        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), boardList, wordAdapter)
-
+        var board: Board = Board(wordBtn, player)
+        recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), board, wordAdapter, binding)
 
 
 
     }
+
 
 
 
