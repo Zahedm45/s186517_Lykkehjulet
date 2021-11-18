@@ -98,7 +98,8 @@ class KeyboardAdapter(
             if (player.turns != 1) {
                 val alertDialog = AlertDialog.Builder(context)
                 alertDialog.setTitle("Your word does not match!")
-                alertDialog.setMessage("You lose 1 turn, you now have ${player.turns-1}")
+                alertDialog.setMessage("You lose 1 turn, you now have ${player.turns-1} turn(s)")
+                alertDialog.setPositiveButton("OK",{dialog, which ->})
                 alertDialog.show()
 
             }
