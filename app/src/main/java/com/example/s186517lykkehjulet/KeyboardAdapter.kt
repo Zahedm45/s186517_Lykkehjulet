@@ -20,11 +20,11 @@ class KeyboardAdapter(
     private val binding: FragmentGamePageBinding
 ): RecyclerView.Adapter<KeyboardAdapter.ViewHolder>() {
 
-    private lateinit var wordBtn : MutableList<WordButton>
+    private var wordBtn = board.wordButton
 
 
     inner class ViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
-        val wordButton = view.findViewById<Button>(R.id.keyboardButton)
+        val keyButton = view.findViewById<Button>(R.id.keyboardButton)
 
 
     }
@@ -33,7 +33,7 @@ class KeyboardAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         view  = LayoutInflater.from(parent.context).inflate(R.layout.keyboard_button_fragment, parent, false)
-        wordBtn = board.wordButton
+
         setPlayerTurnsOnDisplay(board, binding)
         return ViewHolder(view)
 
@@ -42,21 +42,20 @@ class KeyboardAdapter(
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val curWord = wordArr[position]
-        Log.i(TAG, "Clicked outside $")
-        holder.wordButton.text = curWord.toString()
+        val curKey = wordArr[position]
+        holder.keyButton.text = curKey.toString()
 
 
-        holder.wordButton.setOnClickListener {
-            val btnText = holder.wordButton.text.single()
+        holder.keyButton.setOnClickListener {
+            val keyboardBtnText = holder.keyButton.text.single()
             var isClickSucceeded = false
-           // Log.i(TAG, "Clicked outside $btnText")
+            Log.i(TAG, "Clicked outside $keyboardBtnText")
 
             for ((index, value ) in wordBtn.withIndex()) {
-               // Log.i(TAG, "value ${value.letter} btnText $btnText")
+                Log.i(TAG, "value ${value.letter} btnText $keyboardBtnText")
 
-                if (!value.isMatched && value.letter == btnText && !value.isMatched) {
-                    Log.i(TAG, "Clicked $btnText")
+                if (value.letter == '-' || ((!value.isMatched) && (value.letter.equals(keyboardBtnText)) && (!value.isMatched))) {
+                    Log.i(TAG, "Clicked $keyboardBtnText")
                     isClickSucceeded = true
                     value.isMatched = true
                     board.amountMatched += 1
@@ -82,16 +81,15 @@ class KeyboardAdapter(
                     alertDialog.setMessage("You lose 1 turn, you now have ${player.turns-1}")
                     alertDialog.show()
                 }
-
                 player.turns -= 1
                 setPlayerTurnsOnDisplay(board, binding)
-
 
             }
 
             if (player.turns == 0) {
                 Navigation.findNavController(view).navigate(R.id.lostDisplay_nav)
             }
+
         }
 
     }

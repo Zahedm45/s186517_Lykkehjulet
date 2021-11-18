@@ -57,15 +57,17 @@
 
 
     <string-array name="Airlines">
-        <item>qatar-airways</item>
+<!--        <item>qatar-airways</item>
         <item>eva-air</item>
-        <item>emirates</item>
-        <item>hainan-airlines</item>
 
+        <item>hainan-airlines</item>
         <item>japan-airlines</item>
         <item>singapore-airlines</item>
         <item>ana-all-nippon-airways</item>
-        <item>cathay-pacific-airways</item>
+        <item>cathay-pacific-airways</item>-->
+
+
+        <item>emirates</item>
 
     </string-array>
 
@@ -80,7 +82,7 @@
 
     </string-array>
 
-    <string name="alphabet" >abcdefghijklmnopqrstuvwxyz-</string>
+    <string name="alphabet" >abcdefghijklmnopqrstuvwxyz</string>
 
 
     <string-array name="whiteSpace">
