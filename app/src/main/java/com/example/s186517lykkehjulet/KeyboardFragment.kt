@@ -93,7 +93,7 @@ class KeyboardFragment : Fragment() {
             val str = valueOption.uppercase()
             binding.pointsTextView.text = str
             board.player.spinWheelValue = str
-            Log.i(TAG, "player spin value....................${board.player.spinWheelValue}")
+           // Log.i(TAG, "player spin value....................${board.player.spinWheelValue}")
 
 
         }

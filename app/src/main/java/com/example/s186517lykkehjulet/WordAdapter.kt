@@ -32,10 +32,10 @@ class WordAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val curWord = wordBtn[position]
         //       holder.wordButton.text = curWord.letter.toString()
-        Log.i(TAG, "curWord: index ${wordBtn.indexOf(curWord)} letter ${curWord.letter}, isFaceUp ${curWord.isFaceUp}, isMatched ${curWord.isMatched}")
+        // Log.i(TAG, "curWord: index ${wordBtn.indexOf(curWord)} letter ${curWord.letter}, isFaceUp ${curWord.isFaceUp}, isMatched ${curWord.isMatched}")
 
         if (curWord.letter == '-') {
-            Log.i(TAG, "second value is ${curWord.letter} index is ${wordBtn.indexOf(curWord)}")
+            // Log.i(TAG, "second value is ${curWord.letter} index is ${wordBtn.indexOf(curWord)}")
             holder.wordButton.text = "-"
             curWord.isFaceUp = true
 

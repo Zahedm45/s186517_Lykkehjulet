@@ -44,22 +44,21 @@ class KeyboardAdapter(
         val curKey = wordArr[position]
         holder.keyButton.text = curKey.toString()
 
-        Log.i(TAG, "player (KeyboardAdapter).${board.player.spinWheelValue}")
+
 
 
         holder.keyButton.setOnClickListener {
-            if (board.player.spinWheelValue != "Null") {
-                val isClickSucceeded = isWordMatched(holder)
+            val spinValue = board.player.spinWheelValue.lowercase()
+            Log.i(TAG, "player (KeyboardAdapter) ${board.player.spinWheelValue}")
+            if (spinValue != "null") {
 
-                // navigates to another fragment if there is a winner
-                winnerFound()
-                clickNotSucceeded(board, isClickSucceeded)
-                if (board.player.turns == 0) {
-                    Navigation.findNavController(view).navigate(R.id.lostDisplay_nav)
+                when(spinValue) {
+                    ValueOption.BANKRUPT -> bankrupt()
+                    ValueOption.TURN_LOST -> turnLost()
+                    ValueOption.EXTRA_TURN -> extraTurn()
+                    else -> playerHasPoints(holder, spinValue)
                 }
-                binding.pointsTextView.text = "Press Spin Button"
-                board.player.spinWheelValue = "Null"
-                //binding.pointsTextView.text = R.string.spinWheelFirst.toString()
+
             }
 
         }
@@ -70,13 +69,41 @@ class KeyboardAdapter(
     override fun getItemCount() = wordArr.size
 
 
-    private fun setPlayerTurnsOnDisplay(board: Board, binding: FragmentGamePageBinding){
-       // Log.i(TAG, "Turn left called")
-        val leftTurns = binding.turnLeftTv
-        val player = board.player
-        leftTurns.text = "Turns left: ${player.turns}"
+
+
+    private fun playerHasPoints(holder: ViewHolder, spinValue: String) {
+        val isClickSucceeded = isWordMatched(holder)
+        // navigates to another fragment if there is a winner
+        winnerFound()
+        clickNotSucceeded(board, isClickSucceeded)
+        if (board.player.turns == 0) {
+            Navigation.findNavController(view).navigate(R.id.lostDisplay_nav)
+        }
+        binding.pointsTextView.text = "Press Spin Button"
+        board.player.spinWheelValue = "Null"
+        //binding.pointsTextView.text = R.string.spinWheelFirst.toString()
+    }
+
+
+    private fun bankrupt() {
 
     }
+
+    private fun turnLost() {
+
+    }
+
+    private fun extraTurn() {
+
+    }
+
+
+
+
+
+
+
+
 
     private fun clickNotSucceeded (board: Board, isClickSucceeded: Boolean) {
         val player = board.player
@@ -126,5 +153,11 @@ class KeyboardAdapter(
         }
     }
 
+    private fun setPlayerTurnsOnDisplay(board: Board, binding: FragmentGamePageBinding){
+        // Log.i(TAG, "Turn left called")
+        val leftTurns = binding.turnLeftTv
+        val player = board.player
+        leftTurns.text = "Turns left: ${player.turns}"
 
+    }
 }

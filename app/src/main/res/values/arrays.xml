@@ -87,7 +87,7 @@
     <string-array name="valueOption">
         <item>100</item>
         <item>50</item>
-        <item>lost turn</item>
+        <item>turn lost</item>
         <item>extra turn</item>
         <item>bankrupt </item>
     </string-array>
