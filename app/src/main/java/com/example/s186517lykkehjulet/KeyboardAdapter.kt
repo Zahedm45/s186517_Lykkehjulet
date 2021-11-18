@@ -34,6 +34,7 @@ class KeyboardAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         view  = LayoutInflater.from(parent.context).inflate(R.layout.keyboard_button_fragment, parent, false)
         setPlayerTurnsOnDisplay(board, binding)
+        displayPlayerPoint()
         return ViewHolder(view)
 
 
@@ -69,6 +70,7 @@ class KeyboardAdapter(
         val player = board.player
         if (isClickSucceeded && (spinValueInt != null) ) {
             player.points += spinValueInt
+            displayPlayerPoint()
         }
         // navigates to another fragment if there is a winner
         winnerFound()
@@ -142,5 +144,12 @@ class KeyboardAdapter(
         val player = board.player
         leftTurns.text = "Turns left: ${player.turns}"
 
+
+    }
+
+    fun displayPlayerPoint() {
+        val player = board.player
+        val tvPlayerPoint = binding.tvPlayersOwenPoints
+        tvPlayerPoint.text = "Your total points: ${player.points}"
     }
 }
