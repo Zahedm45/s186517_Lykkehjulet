@@ -1,5 +1,6 @@
 package com.example.s186517lykkehjulet
 
+import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
@@ -75,6 +76,12 @@ class KeyboardAdapter(
 
             if (!isClickSucceeded) {
                // Log.i(TAG, "player turns ${player.turns}")
+                if (player.turns != 1) {
+                    val alertDialog = AlertDialog.Builder(context)
+                    alertDialog.setTitle("Your word does not match!")
+                    alertDialog.setMessage("You lose 1 turn, you now have ${player.turns-1}")
+                    alertDialog.show()
+                }
 
                 player.turns -= 1
                 setPlayerTurnsOnDisplay(board, binding)
