@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 class KeyboardAdapter(
     private val wordArr: CharArray,
     private val context: Context,
-    private val board: Board
+    private val board: Board,
+    private val wordAdapter: WordAdapter
 ): RecyclerView.Adapter<KeyboardAdapter.ViewHolder>() {
 
     private lateinit var wordBtn : MutableList<WordButton>
@@ -48,6 +49,7 @@ class KeyboardAdapter(
                     Log.i(TAG, "Clicked $btnText")
                     value.isMatched = true
                     board.amountMatched += 1
+                    wordAdapter.notifyChanged()
                     break
                 }
             }
