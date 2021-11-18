@@ -19,7 +19,7 @@ class KeyboardAdapter(
     private val board: Board,
     private val wordAdapter: WordAdapter,
     private val binding: FragmentGamePageBinding
-): RecyclerView.Adapter<KeyboardAdapter.ViewHolder>() {
+): RecyclerView.Adapter<KeyboardAdapter.ViewHolder>(){
 
     private var wordBtn = board.wordButton
 
@@ -136,9 +136,12 @@ class KeyboardAdapter(
     private fun winnerFound() {
         if (board.amountMatched == wordBtn.size) {
             Log.i(TAG, "You won the match...")
+            DataPasser.playerPoints = board.player.points
             Navigation.findNavController(view).navigate(R.id.winDisplay1)
         }
     }
+
+
 
     fun setPlayerTurnsOnDisplay(board: Board, binding: FragmentGamePageBinding){
         // Log.i(TAG, "Turn left called")
@@ -154,4 +157,5 @@ class KeyboardAdapter(
         val tvPlayerPoint = binding.tvPlayersOwenPoints
         tvPlayerPoint.text = "Your total points: ${player.points}"
     }
+
 }

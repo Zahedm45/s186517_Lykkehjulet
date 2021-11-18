@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/wordsReFragment">
+    app:startDestination="@id/lostDisplay_nav">
     <fragment
         android:id="@+id/wordsReFragment"
         android:name="com.example.s186517lykkehjulet.KeyboardFragment"
@@ -20,12 +20,16 @@
             app:destination="@+id/wordsReFragment"
             />
 
+
     </fragment>
 
     <fragment
         android:id="@+id/lostDisplay_nav"
         android:name="com.example.s186517lykkehjulet.LostDisplay"
         tools:layout="@layout/lost_display_fragemnt" >
+        <action
+            android:id="@+id/lostDisplay_toWin"
+            app:destination="@id/wordsReFragment" />
     </fragment>
 
 
