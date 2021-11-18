@@ -1,7 +1,6 @@
 package com.example.s186517lykkehjulet
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
@@ -48,15 +47,13 @@ class KeyboardAdapter(
 
 
 
+
         holder.keyButton.setOnClickListener {
-            val spinValue = board.player.spinWheelValue.lowercase()
-            Log.i(TAG, "spin value (KeyboardAdapter) ${spinValue}")
-            if (spinValue != "null") {
-                playerHasPoints(holder, spinValue)
-            }
+            val spinValue = board.player.spinWheelValue.toIntOrNull()
+            Log.i(TAG, "spin value (KeyboardAdapter) $spinValue")
+            if (spinValue != null) playerHasPoints(holder, spinValue)
 
         }
-
 
     }
 
@@ -65,9 +62,8 @@ class KeyboardAdapter(
 
 
 
-    fun playerHasPoints(holder: ViewHolder, spinValue: String) {
+    fun playerHasPoints(holder: ViewHolder, spinValueInt: Int?) {
         val isClickSucceeded = isWordMatched(holder)
-        val spinValueInt = spinValue.toIntOrNull()
         val player = board.player
         if (isClickSucceeded && (spinValueInt != null) ) {
             player.points += spinValueInt
