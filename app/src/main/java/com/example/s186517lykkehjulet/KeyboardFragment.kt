@@ -1,12 +1,16 @@
 package com.example.s186517lykkehjulet
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.ContentValues
 import android.content.ContentValues.TAG
+import android.icu.text.DateTimePatternGenerator.PatternInfo.OK
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +23,7 @@ class KeyboardFragment : Fragment() {
      val binding get() = _binding!!
     private lateinit var randomSelectedCategory : String
     private lateinit var recyclerView : RecyclerView
+    private lateinit var keyboardAdapter : KeyboardAdapter
 
 
 
@@ -76,7 +81,7 @@ class KeyboardFragment : Fragment() {
         val player = Player()
         var board: Board = Board(wordBtn, player)
         spinWheel(board)
-        val keyboardAdapter = KeyboardAdapter(charAlphabetList, requireContext(), board, wordAdapter, binding)
+        keyboardAdapter = KeyboardAdapter(charAlphabetList, requireContext(), board, wordAdapter, binding)
         recyclerView.adapter = keyboardAdapter
 
 
@@ -139,7 +144,15 @@ class KeyboardFragment : Fragment() {
 
     private fun bankrupt(board: Board) {
         val player = board.player
+        val alertDialog = AlertDialog.Builder(context)
+        alertDialog.setTitle("You land on bankrupt!")
+        if (player.points != 0) {
+            alertDialog.setMessage("You lose all your money..")
+        }
+        alertDialog.setPositiveButton("OK",{dialog, which ->})
+        alertDialog.show()
         player.points = 0
+        keyboardAdapter.displayPlayerPoint()
 
 
     }
