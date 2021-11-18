@@ -79,22 +79,17 @@
         <item>Car Brands</item>
         <item>Computer Brands</item>
         <item>Airlines</item>
-
     </string-array>
 
     <string name="alphabet" >abcdefghijklmnopqrstuvwxyz</string>
 
 
-    <string-array name="whiteSpace">
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-        <item> </item>
-
+    <string-array name="valueOption">
+        <item>100</item>
+        <item>50</item>
+        <item>lost turn</item>
+        <item>extra turn</item>
+        <item>bankrupt </item>
     </string-array>
 
 

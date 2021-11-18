@@ -74,12 +74,25 @@ class KeyboardFragment : Fragment() {
         val player = Player()
         var board: Board = Board(wordBtn, player)
         recyclerView.adapter = KeyboardAdapter(charAlphabetList, requireContext(), board, wordAdapter, binding)
+        spinWheel()
 
 
 
     }
 
 
+    fun spinWheel() {
+        val spinBtn = binding.spinWheelBtn
+        spinBtn.setOnClickListener{
+            val valueOption = resources.getStringArray(R.array.valueOption).toList()
+                .shuffled().shuffled()
+                .take(1)
+                .toString().replace("[","")
+                .replace("]", "")
+            binding.pointsTextView.text = valueOption.uppercase()
+
+        }
+    }
 
 
 
