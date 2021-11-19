@@ -2,6 +2,7 @@ package com.example.s186517lykkehjulet
 
 import android.app.AlertDialog
 import android.content.ContentValues
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -89,7 +90,6 @@ class KeyboardFragment : Fragment() {
 
     private fun spinWheel(board: Board) {
         val spinBtn = binding.spinWheelBtn
-
         spinBtn.setOnClickListener{
             if (board.isProcessDone) {
                 board.isProcessDone =  false
@@ -107,7 +107,10 @@ class KeyboardFragment : Fragment() {
                     ValueOption.BANKRUPT -> bankrupt(board)
                     ValueOption.TURN_LOST -> turnLost(board)
                     ValueOption.EXTRA_TURN -> extraTurn(board)
-                    else -> binding.tvInstruction.text = "Guess a word"
+                    else -> {
+                        binding.tvInstruction.text = "Guess a word"
+                        binding.tvScreenMain.setBackgroundColor(Color.parseColor("#8fbc8f"))
+                            }
                    // else -> wonPoints(board, str.lowercase())
                 }
             } else {
@@ -149,17 +152,19 @@ class KeyboardFragment : Fragment() {
 
     private fun bankrupt(board: Board) {
         val player = board.player
-        val alertDialog = AlertDialog.Builder(context)
-        alertDialog.setTitle("You land on bankrupt!")
+
         if (player.points != 0) {
-            alertDialog.setMessage("You lose all of your money. No worries, keep play..")
+            val alertDialog = AlertDialog.Builder(context)
+            alertDialog.setTitle("You land on bankrupt!")
+            alertDialog.setMessage("You lose all of your money. No worries, keep playing..")
+            alertDialog.setPositiveButton("OK",{dialog, which ->})
+            alertDialog.show()
         }
-        alertDialog.setPositiveButton("OK",{dialog, which ->})
-        alertDialog.show()
+
         player.points = 0
         keyboardAdapter.displayPlayerPoint()
         board.isProcessDone = true
-
+        binding.tvScreenMain.setBackgroundColor(Color.parseColor("#ff7f50"))
 
     }
 
@@ -170,6 +175,7 @@ class KeyboardFragment : Fragment() {
             keyboardAdapter.setPlayerTurnsOnDisplay(board, binding)
         }
         board.isProcessDone = true
+        binding.tvScreenMain.setBackgroundColor(Color.parseColor("#ff7f50"))
     }
 
     private fun extraTurn(board: Board) {
@@ -177,7 +183,7 @@ class KeyboardFragment : Fragment() {
         player.turns += 1
         keyboardAdapter.setPlayerTurnsOnDisplay(board, binding)
         board.isProcessDone = true
-    }
+        binding.tvScreenMain.setBackgroundColor(Color.parseColor("#8fbc8f"))    }
 
     private fun wonPoints(board: Board, spinValue: String) {
         val player = board.player

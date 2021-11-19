@@ -27,28 +27,26 @@
         />
 
 
+    <RelativeLayout
+        android:id="@+id/rv_word_layout"
+        android:layout_width="401dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_category_view">
 
-<RelativeLayout
-    android:id="@+id/rv_word_layout"
-    android:layout_width="match_parent"
-    android:layout_height="161dp"
-    android:layout_marginTop="20dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/text_category_view"
-    >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:nestedScrollingEnabled="false"
+            android:paddingHorizontal="12dp"
+            tools:listitem="@layout/word" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_word"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="false"
-        android:nestedScrollingEnabled="false"
-        android:paddingHorizontal="12dp"
-        tools:listitem="@layout/word" />
-
-</RelativeLayout>
+    </RelativeLayout>
 
 
     <TextView

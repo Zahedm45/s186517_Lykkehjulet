@@ -3,6 +3,7 @@ package com.example.s186517lykkehjulet
 import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -73,6 +74,7 @@ class KeyboardAdapter(
         if (player.turns == 0) {
             Navigation.findNavController(view).navigate(R.id.nov_lost_display)
         }
+        binding.tvScreenMain.setBackgroundColor(Color.parseColor("#2AEA9E4E"))
         binding.pointsTextView.text = "Press Spin Button"
         player.spinWheelValue = "Null"
         //binding.pointsTextView.text = R.string.spinWheelFirst.toString()
@@ -124,6 +126,7 @@ class KeyboardAdapter(
 
             }
         }
+
         return isClickSucceeded
     }
 
