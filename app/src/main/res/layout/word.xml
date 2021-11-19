@@ -12,7 +12,7 @@
             android:minHeight="1dip"
             android:minWidth="1dip"
             android:padding="5dp"
-            android:layout_margin="0.5dp"
+            android:layout_margin="1dp"
             android:textSize="18dp"
             android:clickable="false"
             android:nestedScrollingEnabled="false"
