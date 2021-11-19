@@ -19,9 +19,9 @@ class LostDisplay : Fragment() {
         val view = inflater.inflate(R.layout.lost_display_fragemnt, container, false)
 
 
-//        view.findViewById<Button>(R.id.playButton_lost).setOnClickListener {
-//            Navigation.findNavController(view).navigate(R.id.lostDisplay_toWin)
-//        }
+        view.findViewById<Button>(R.id.playButton_lost).setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.nav_lost_display_to_main)
+        }
 
         view.findViewById<Button>(R.id.stopButton_lost).setOnClickListener {
 

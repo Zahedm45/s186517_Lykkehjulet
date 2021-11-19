@@ -27,7 +27,6 @@ class WinDisplay : Fragment() {
         }
 
         view.findViewById<Button>(R.id.stopButton_win).setOnClickListener {
-//            view.findViewById<Button>(R.id.stopButton_win).setBackgroundColor(Color.RED)
             activity?.finish()
             exitProcess(0)
         }
