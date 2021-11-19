@@ -39,11 +39,14 @@ class WordAdapter(
         if (curWord.letter == '-') {
             // Log.i(TAG, "second value is ${curWord.letter} index is ${wordBtn.indexOf(curWord)}")
             holder.wordButton.text = "-"
+//            holder.wordButton.setBackgroundColor(Color.GRAY)
             curWord.isFaceUp = true
 
         } else if (curWord.isMatched) {
 //            Log.i(TAG, "second value is ${curWord.letter} index is ${wordBtn.indexOf(curWord)}")
             holder.wordButton.text = curWord.letter.toString()
+            holder.wordButton.setBackgroundColor(Color.GREEN)
+            holder.wordButton.setTextColor(Color.BLACK)
             curWord.isFaceUp = true
 //            Log.i(TAG, "WordAdapter onBind called")
         } else {

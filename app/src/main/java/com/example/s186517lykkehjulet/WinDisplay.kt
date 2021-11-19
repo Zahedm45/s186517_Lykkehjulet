@@ -1,5 +1,6 @@
 package com.example.s186517lykkehjulet
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,11 +23,11 @@ class WinDisplay : Fragment() {
         tvPoint.text = "You final total pont is ${DataPasser.playerPoints}"
 
         view.findViewById<Button>(R.id.playButton_lost).setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.wordsReFragment)
+            Navigation.findNavController(view).navigate(R.id.nav_winDisplay_to_main)
         }
 
-        view.findViewById<Button>(R.id.stopButton_lost).setOnClickListener {
-
+        view.findViewById<Button>(R.id.stopButton_win).setOnClickListener {
+//            view.findViewById<Button>(R.id.stopButton_win).setBackgroundColor(Color.RED)
             activity?.finish()
             exitProcess(0)
         }

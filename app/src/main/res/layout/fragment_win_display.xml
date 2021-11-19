@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/pointTV_win" />
 
     <Button
-        android:id="@+id/stopButton_lost"
+        android:id="@+id/stopButton_win"
         android:layout_width="145dp"
         android:layout_height="65dp"
         android:layout_marginStart="44dp"
@@ -57,7 +57,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/stopButton_lost" />
+        app:layout_constraintStart_toEndOf="@+id/stopButton_win" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

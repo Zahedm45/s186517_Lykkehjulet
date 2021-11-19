@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/wordsReFragment">
+    app:startDestination="@id/winDisplay1">
     <fragment
-        android:id="@+id/wordsReFragment"
+        android:id="@+id/nav_main_fragment"
         android:name="com.example.s186517lykkehjulet.KeyboardFragment"
         tools:layout="@layout/fragment_game_page" />
 
@@ -16,23 +16,19 @@
         tools:layout="@layout/fragment_win_display" >
 
         <action
-            android:id="@+id/playButton_lost"
-            app:destination="@+id/wordsReFragment"
+            android:id="@+id/nav_winDisplay_to_main"
+            app:destination="@+id/nav_main_fragment"
             />
-        <action
-            android:id="@+id/action_winDisplay1_to_lostDisplay_nav"
-            app:destination="@id/lostDisplay_nav" />
-
 
     </fragment>
 
     <fragment
-        android:id="@+id/lostDisplay_nav"
+        android:id="@+id/nov_lost_display"
         android:name="com.example.s186517lykkehjulet.LostDisplay"
         tools:layout="@layout/lost_display_fragemnt" >
         <action
-            android:id="@+id/lostDisplay_toWin"
-            app:destination="@id/wordsReFragment" />
+            android:id="@+id/nav_lost_display_to_main"
+            app:destination="@id/nav_main_fragment" />
     </fragment>
 
 

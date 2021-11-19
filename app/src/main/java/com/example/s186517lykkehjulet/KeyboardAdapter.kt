@@ -71,7 +71,7 @@ class KeyboardAdapter(
         winnerFound()
         clickNotSucceeded(board, isClickSucceeded)
         if (player.turns == 0) {
-            Navigation.findNavController(view).navigate(R.id.lostDisplay_nav)
+            Navigation.findNavController(view).navigate(R.id.nov_lost_display)
         }
         binding.pointsTextView.text = "Press Spin Button"
         player.spinWheelValue = "Null"

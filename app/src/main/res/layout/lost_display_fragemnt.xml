@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/pointTV_win"
+        android:id="@+id/pointTV_lost"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:text="YOUR POINT IS: 1000"
@@ -30,7 +30,7 @@
         android:src="@drawable/game_over_pic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pointTV_win" />
+        app:layout_constraintTop_toBottomOf="@+id/pointTV_lost" />
 
     <Button
         android:id="@+id/stopButton_lost"
