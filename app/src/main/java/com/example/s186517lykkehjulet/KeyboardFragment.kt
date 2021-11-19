@@ -86,24 +86,28 @@ class KeyboardFragment : Fragment() {
     }
 
 
-    fun spinWheel(board: Board) {
+    private fun spinWheel(board: Board) {
         val spinBtn = binding.spinWheelBtn
-        spinBtn.setOnClickListener{
-            val valueOption = resources.getStringArray(R.array.valueOption).toList()
-                .shuffled().shuffled()
-                .take(1)
-                .toString().replace("[","")
-                .replace("]", "")
-            val str = valueOption.uppercase()
-            binding.pointsTextView.text = str
-            board.player.spinWheelValue = str
-           // Log.i(TAG, "player spin value....................${board.player.spinWheelValue}")
 
-            when(str.lowercase()){
-                ValueOption.BANKRUPT -> bankrupt(board)
-                ValueOption.TURN_LOST -> turnLost(board)
-                ValueOption.EXTRA_TURN -> extraTurn(board)
-               // else -> wonPoints(board, str.lowercase())
+        spinBtn.setOnClickListener{
+            if (board.isProcessDone) {
+                board.isProcessDone =  false
+                val valueOption = resources.getStringArray(R.array.valueOption).toList()
+                    .shuffled().shuffled()
+                    .take(1)
+                    .toString().replace("[","")
+                    .replace("]", "")
+                val str = valueOption.uppercase()
+                binding.pointsTextView.text = str
+                board.player.spinWheelValue = str
+                // Log.i(TAG, "player spin value....................${board.player.spinWheelValue}")
+
+                when(str.lowercase()){
+                    ValueOption.BANKRUPT -> bankrupt(board)
+                    ValueOption.TURN_LOST -> turnLost(board)
+                    ValueOption.EXTRA_TURN -> extraTurn(board)
+                   // else -> wonPoints(board, str.lowercase())
+                }
             }
         }
 
@@ -149,6 +153,7 @@ class KeyboardFragment : Fragment() {
         alertDialog.show()
         player.points = 0
         keyboardAdapter.displayPlayerPoint()
+        board.isProcessDone = true
 
 
     }
@@ -159,12 +164,14 @@ class KeyboardFragment : Fragment() {
             player.turns -= 1
             keyboardAdapter.setPlayerTurnsOnDisplay(board, binding)
         }
+        board.isProcessDone = true
     }
 
     private fun extraTurn(board: Board) {
         val player = board.player
         player.turns += 1
         keyboardAdapter.setPlayerTurnsOnDisplay(board, binding)
+        board.isProcessDone = true
     }
 
     private fun wonPoints(board: Board, spinValue: String) {

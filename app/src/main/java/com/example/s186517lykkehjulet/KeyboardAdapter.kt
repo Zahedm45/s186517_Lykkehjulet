@@ -45,14 +45,11 @@ class KeyboardAdapter(
         val curKey = wordArr[position]
         holder.keyButton.text = curKey.toString()
 
-
-
-
         holder.keyButton.setOnClickListener {
             val spinValue = board.player.spinWheelValue.toIntOrNull()
             Log.i(TAG, "spin value (KeyboardAdapter) $spinValue")
             if (spinValue != null) playerHasPoints(holder, spinValue)
-
+            board.isProcessDone = true
         }
 
     }
@@ -62,7 +59,7 @@ class KeyboardAdapter(
 
 
 
-    fun playerHasPoints(holder: ViewHolder, spinValueInt: Int?) {
+    private fun playerHasPoints(holder: ViewHolder, spinValueInt: Int?) {
         val isClickSucceeded = isWordMatched(holder)
         val player = board.player
         if (isClickSucceeded && (spinValueInt != null) ) {
