@@ -16,8 +16,7 @@
             android:textSize="18dp"
             android:clickable="false"
             android:nestedScrollingEnabled="false"
-            android:gravity="center"
-            android:layout_gravity="center"
+
 
 
             />

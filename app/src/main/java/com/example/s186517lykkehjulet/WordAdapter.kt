@@ -26,10 +26,12 @@ class WordAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view : View = LayoutInflater.from(parent.context).inflate(R.layout.word, parent, false)
+
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         val curWord = wordBtn[position]
         //       holder.wordButton.text = curWord.letter.toString()
         // Log.i(TAG, "curWord: index ${wordBtn.indexOf(curWord)} letter ${curWord.letter}, isFaceUp ${curWord.isFaceUp}, isMatched ${curWord.isMatched}")

@@ -28,32 +28,31 @@
 
 
 
-<LinearLayout
+<RelativeLayout
     android:id="@+id/rv_word_layout"
     android:layout_width="match_parent"
     android:layout_height="161dp"
-    android:orientation="vertical"
-    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_marginTop="25dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/text_category_view"
+
     >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_word"
-        android:layout_width="match_parent"
-        android:layout_height="161dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:clickable="false"
         android:nestedScrollingEnabled="false"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        tools:listitem="@layout/word"
+        tools:listitem="@layout/word" />
 
-        />
-
-</LinearLayout>
+</RelativeLayout>
 
 
     <TextView
@@ -61,59 +60,79 @@
         android:layout_width="135dp"
         android:layout_height="54dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/pointsTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_word_layout"
-        app:layout_constraintVertical_bias="0.034" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_word_layout" />
 
     <TextView
         android:id="@+id/tv_playersOwenPoints"
         android:layout_width="247dp"
         android:layout_height="54dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/pointsTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/turn_left_tv"
-        app:layout_constraintTop_toBottomOf="@+id/rv_word_layout"
-        app:layout_constraintVertical_bias="0.617" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_word_layout" />
 
-    <TextView
-        android:id="@+id/pointsTextView"
+
+    <LinearLayout
+        android:id="@+id/tvScreenMain"
         android:layout_width="match_parent"
-        android:layout_height="83dp"
-        android:layout_marginHorizontal="5dp"
-        android:layout_marginBottom="44dp"
+        android:layout_height="121dp"
         android:background="#2AEA9E4E"
-        android:paddingVertical="15dp"
-        android:text="@string/spinWheelFirst"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        android:textStyle="bold"
+        android:layout_marginHorizontal="5dp"
         app:layout_constraintBottom_toTopOf="@+id/spinWheelBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/turn_left_tv"
+        app:layout_constraintVertical_bias="0.023"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pointsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="5dp"
+            android:paddingVertical="5dp"
+            android:text="@string/spinWheelFirst"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_instruction"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="5dp"
+            android:layout_marginHorizontal="5dp"
+            android:text="@string/spinWheelFirst"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/spinWheelBtn"
         android:layout_width="160dp"
         android:layout_height="79dp"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="13dp"
         android:text="@string/spin"
         android:textSize="18sp"
         android:textStyle="bold"
