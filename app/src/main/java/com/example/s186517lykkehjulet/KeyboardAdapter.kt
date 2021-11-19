@@ -47,9 +47,10 @@ class KeyboardAdapter(
 
         holder.keyButton.setOnClickListener {
             val spinValue = board.player.spinWheelValue.toIntOrNull()
-            Log.i(TAG, "spin value (KeyboardAdapter) $spinValue")
             if (spinValue != null) playerHasPoints(holder, spinValue)
             board.isProcessDone = true
+            binding.pointsTextView.text = ""
+            binding.tvInstruction.text = "Press spin button"
         }
 
     }

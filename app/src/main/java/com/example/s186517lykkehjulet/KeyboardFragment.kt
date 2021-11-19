@@ -107,8 +107,12 @@ class KeyboardFragment : Fragment() {
                     ValueOption.BANKRUPT -> bankrupt(board)
                     ValueOption.TURN_LOST -> turnLost(board)
                     ValueOption.EXTRA_TURN -> extraTurn(board)
+                    else -> binding.tvInstruction.text = "Guess a word"
                    // else -> wonPoints(board, str.lowercase())
                 }
+            } else {
+                val tvInstruction = binding.tvInstruction
+                tvInstruction.text = "Guess a word first!"
             }
         }
 
