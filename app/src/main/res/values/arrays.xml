@@ -85,6 +85,8 @@
 
 
     <string-array name="valueOption">
+        <item>500</item>
+        <item>200</item>
         <item>100</item>
         <item>50</item>
         <item>turn lost</item>

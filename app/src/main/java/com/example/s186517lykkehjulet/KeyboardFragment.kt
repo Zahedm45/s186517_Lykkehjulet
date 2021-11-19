@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.s186517lykkehjulet.databinding.FragmentGamePageBinding
@@ -113,6 +115,10 @@ class KeyboardFragment : Fragment() {
                             }
                    // else -> wonPoints(board, str.lowercase())
                 }
+                if (board.player.turns == 0) {
+                    Navigation.findNavController(requireView()).navigate(R.id.nov_lost_display)
+                }
+
             } else {
                 val tvInstruction = binding.tvInstruction
                 tvInstruction.text = "Guess a word first!"

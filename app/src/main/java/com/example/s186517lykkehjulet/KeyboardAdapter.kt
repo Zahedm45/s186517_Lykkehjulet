@@ -133,7 +133,6 @@ class KeyboardAdapter(
 
     private fun winnerFound() {
         if (board.amountMatched == wordBtn.size) {
-            Log.i(TAG, "You won the match...")
             DataPasser.playerPoints = board.player.points
             Navigation.findNavController(view).navigate(R.id.winDisplay1)
         }
@@ -155,5 +154,9 @@ class KeyboardAdapter(
         val tvPlayerPoint = binding.tvPlayersOwenPoints
         tvPlayerPoint.text = "Your total points: ${player.points}"
     }
+
+//    fun gameOver() {
+//        Log.i(TAG, "You won the match...")
+//    }
 
 }
