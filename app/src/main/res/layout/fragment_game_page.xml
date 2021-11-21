@@ -29,9 +29,11 @@
 
     <RelativeLayout
         android:id="@+id/rv_word_layout"
-        android:layout_width="401dp"
+        android:layout_width="match_parent"
         android:layout_height="114dp"
         android:layout_marginTop="20dp"
+        android:elevation="20dp"
+        android:background="#43FDFAFA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +92,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toBottomOf="@+id/turn_left_tv"
         app:layout_constraintVertical_bias="0.023"
         android:orientation="vertical">
@@ -129,6 +130,8 @@
         android:text="@string/spin"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:backgroundTint="@color/light_blue_900"
+        android:background="@drawable/rounded_corner"
         app:layout_constraintBottom_toTopOf="@+id/recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

@@ -19,7 +19,7 @@ class LostDisplay : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.lost_display_fragemnt, container, false)
         val textView = view.findViewById<TextView>(R.id.pointTV_lost)
-        textView.text = "You lose! Your final point is ${DataPasser.playerPoints}"
+        textView.text = "You lost the game!"
 
         view.findViewById<Button>(R.id.playButton_lost).setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.nav_lost_display_to_main)

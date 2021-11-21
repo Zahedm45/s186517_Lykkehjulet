@@ -135,9 +135,10 @@ class KeyboardFragment : Fragment() {
 
     fun getSelected(str: String) : Int {
         return when(str.replace(" ", "").lowercase()) {
-            "computerbrands" -> R.array.Airlines
-            "carbrands" -> R.array.Airlines
+            "computerbrands" -> R.array.ComputerBrands
+            "carbrands" -> R.array.CarBrands
             "airlines" -> R.array.Airlines
+            "thesevenwonders" -> R.array.SevenWonders
             else -> {
                 Log.i(ContentValues.TAG, "Category $str not found")
                 0

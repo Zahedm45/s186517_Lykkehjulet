@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2020 The Android Open Source Project
 
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
 <resources>
+
+    <string-array name="valueOption">
+        <item>500</item>
+        <item>200</item>
+        <item>100</item>
+        <item>50</item>
+        <item>turn lost</item>
+        <item>extra turn</item>
+        <item>bankrupt </item>
+    </string-array>
+
 
 
     <string-array name="CarBrands">
@@ -57,20 +54,27 @@
 
 
     <string-array name="Airlines">
-<!--        <item>qatar-airways</item>
+        <item>qatar-airways</item>
         <item>eva-air</item>
-
         <item>hainan-airlines</item>
         <item>japan-airlines</item>
         <item>singapore-airlines</item>
         <item>ana-all-nippon-airways</item>
-        <item>cathay-pacific-airways</item>-->
-
-
-        <item>emirates-i</item>
-
+        <item>cathay-pacific-airways</item>
+        <item>emirates</item>
     </string-array>
 
+
+
+    <string-array name="SevenWonders">
+        <item>great-wall-of-china</item>
+        <item>chichén-itzá</item>
+        <item>petra</item>
+        <item>machu-picchu</item>
+        <item>christ-the-redeemer</item>
+        <item>colosseum</item>
+        <item>taj-mahal</item>
+    </string-array>
 
 
 
@@ -79,20 +83,13 @@
         <item>Car Brands</item>
         <item>Computer Brands</item>
         <item>Airlines</item>
+        <item>The Seven Wonders</item>
     </string-array>
 
-    <string name="alphabet" >abcdefghijklmnopqrstuvwxyz</string>
+    <string name="alphabet" >abcdefghijklmnopqrstuvwxyzáé</string>
 
 
-    <string-array name="valueOption">
-        <item>500</item>
-        <item>200</item>
-        <item>100</item>
-        <item>50</item>
-        <item>turn lost</item>
-        <item>extra turn</item>
-        <item>bankrupt </item>
-    </string-array>
+
 
 
 
