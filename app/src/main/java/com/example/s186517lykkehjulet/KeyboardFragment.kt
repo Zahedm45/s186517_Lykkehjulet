@@ -35,6 +35,9 @@ class KeyboardFragment : Fragment() {
         _binding = FragmentGamePageBinding.inflate(inflater, container, false)
         val view = binding.root
 
+
+
+
         randomSelectedCategory = getRandomCategory().uppercase()
         binding.textCategoryView.text = randomSelectedCategory
 
