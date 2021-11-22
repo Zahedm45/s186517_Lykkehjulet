@@ -27,7 +27,7 @@
         />
 
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rv_word_layout"
         android:layout_width="match_parent"
         android:layout_height="114dp"
@@ -43,12 +43,19 @@
             android:id="@+id/rv_word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:clickable="false"
             android:nestedScrollingEnabled="false"
+            app:fastScrollEnabled="false"
             android:paddingHorizontal="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/word" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <TextView
@@ -176,3 +183,6 @@
     <!--            />-->
 
     <!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+
+
