@@ -45,6 +45,8 @@ class KeyboardAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val curKey = wordArr[position]
         holder.keyButton.text = curKey.toString()
+        holder.keyButton.setTextColor(Color.BLACK)
+        holder.keyButton.setBackgroundColor(Color.LTGRAY)
 
         holder.keyButton.setOnClickListener {
             val spinValue = board.player.spinWheelValue.toIntOrNull()
